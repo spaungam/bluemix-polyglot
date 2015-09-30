@@ -1,0 +1,13 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+production:
+  <<: *default
+  <% if ENV['VCAP_SERVICES'] %>
+  <% services = JSON.parse(ENV["VCAP_SERVICES"])
+     postgres = services["elephantsql"]
+     credentials = postgres.first["credentials"] %>
+  url: <%= credentials["uri"] %>
+  <% end %>
