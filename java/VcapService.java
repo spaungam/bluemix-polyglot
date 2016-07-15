@@ -6,6 +6,7 @@ import com.ibm.json.java.JSONArray;
 import com.ibm.json.java.JSONObject;
 
 public class VcapService {
+        //test comment
 	private static Logger logger =  Logger.getLogger(VcapService.class.getName());
 
 	public VcapService() {
